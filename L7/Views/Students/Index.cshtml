@@ -1,0 +1,104 @@
+﻿@model L7.Models.SchoolViewModels.StudentIndexData
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Students) {
+            string selectedRow = "";
+            if (item.Id == (int?)ViewData["StudentId"])
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @foreach (var course in item.Enrollments)
+                    {
+                        @course.Course.Subject.Title <br />
+                    }
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.Id">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+           }
+    </tbody>
+</table>
+@if (Model.Enrollments != null)
+{
+    <h3>Selected student Enrollments</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Number</th>
+            <th>Title</th>
+        </tr>
+
+        @foreach (var item in Model.Enrollments)
+        {
+            string selectedRow = "";
+            if (item.Id == (int?)ViewData["EnrollmentId"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { EnrollmentId = item.Id })
+                </td>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Course.Subject.Title @item.Course.StartDate 
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+@if (Model.Grades != null)
+{
+    <h3>
+        Students Enrolled in Selected Course
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        @foreach (var item in Model.Grades)
+        {
+            <tr>
+                <td>
+                    @item.GradeOption.Value
+                </td>
+            </tr>
+        }
+    </table>
+}
