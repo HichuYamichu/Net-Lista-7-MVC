@@ -13,15 +13,21 @@ namespace L7.Data {
         public DbSet<Enrollment> Enrollments => Set<Enrollment>();
         public DbSet<Student> Students => Set<Student>();
         public DbSet<Instructor> Instructors => Set<Instructor>();
-        
+        public DbSet<Classification> Classifications => Set<Classification>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<Subject>().ToTable("Subject");
-            modelBuilder.Entity<GradeOption>().ToTable("GradeOption");
+            modelBuilder.Entity<GradeOption>().ToTable("GradeOption")
+                .HasIndex(u => u.Value)
+                .IsUnique();
             modelBuilder.Entity<Grade>().ToTable("Grade");
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Instructor>().ToTable("Instructor");
+            modelBuilder.Entity<Classification>().ToTable("Classification")
+                .HasIndex(u => u.Name)
+                .IsUnique();
         }
     }
 }

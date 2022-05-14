@@ -1,4 +1,4 @@
-﻿@model IEnumerable<L7.Models.Course>
+﻿@model L7.Models.SchoolViewModels.CourseIndexData
 
 @{
     ViewData["Title"] = "Courses";
@@ -13,21 +13,36 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Subject)
+                Subject
+            </th>
+            <th>
+                Instructor
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Courses) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Subject.Title)
+                @Html.DisplayFor(modelItem => item.Subject!.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor!.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
+            </td><td>
+                @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
+                <a asp-action="Index" asp-route-id="@item.Id">Select</a> |
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -36,3 +51,67 @@
 }
     </tbody>
 </table>
+@if (Model.Enrollments != null)
+{
+    <h3>Students Enrolled in this course</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Last name</th>
+            <th>First name</th>
+        </tr>
+
+        @foreach (var item in Model.Enrollments)
+        {
+            string selectedRow = "";
+            if (item.Id == (int?)ViewData["EnrollmentId"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { EnrollmentId = item.Id })
+                </td>
+                <td>
+                    @item.Student!.LastName
+                </td>
+                <td>
+                    @item.Student!.FirstName 
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+@if (Model.Grades != null)
+{
+    <h3>
+        Student grades for selected Course
+    </h3>
+     <p>
+        <a asp-controller="Grades" asp-action="Create" asp-route-id="@ViewData["CourseId"]">Add grade</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>Grade</th>
+            <th>Classification</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Grades)
+        {
+            <tr>
+                <td>
+                    @item.GradeOption!.Value
+                </td>
+                <td>
+                    @item.Classification!.Name
+                </td>
+                <td>
+                <a asp-controller="Grades" asp-action="Edit" asp-route-id="@item.Id" >Edit</a> |
+                <a asp-controller="Grades" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Grades" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+            </tr>
+        }
+    </table>
+}

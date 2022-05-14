@@ -32,16 +32,20 @@
         <tr>
             <th>Course</th>
             <th>Grade</th>
+            <th>Classification</th>
         </tr>
-        @foreach (var enroll in Model.Enrollments)
+        @foreach (var enroll in Model.Enrollments!)
         {
-            @foreach (var grade in enroll.Grades) {
+            @foreach (var grade in enroll.Grades!) {
             <tr>
                 <td>
-                    @enroll.Course.Subject.Title
+                    @enroll.Course!.Subject!.Title
                 </td>
                 <td>
-                    @grade.GradeOption.Value
+                    @grade.GradeOption!.Value
+                </td>
+                <td>
+                    @grade.Classification!.Name
                 </td>
             </tr>
             }

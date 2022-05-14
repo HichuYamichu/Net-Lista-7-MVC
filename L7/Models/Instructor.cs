@@ -13,6 +13,6 @@ namespace L7.Models {
             }
         }
 
-        public ICollection<Course> Courses { get; set; } = null!;
+        public ICollection<Course>? Courses { get; set; }
     }
 }

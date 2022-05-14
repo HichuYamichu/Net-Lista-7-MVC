@@ -25,12 +25,12 @@ namespace L7.Controllers
         {
             var viewModel = new InstructorIndexData();
             viewModel.Instructors = await _context.Instructors
-                .Include(i => i.Courses)
-                    .ThenInclude(i => i.Enrollments)
-                    .ThenInclude(i => i.Student)
-                .Include(i => i.Courses)
-                    .ThenInclude(i => i.Enrollments)
-                .Include(i => i.Courses)
+                .Include(i => i.Courses!)
+                    .ThenInclude(i => i.Enrollments!)
+                    .ThenInclude(i => i.Student!)
+                .Include(i => i.Courses!)
+                    .ThenInclude(i => i.Enrollments!)
+                .Include(i => i.Courses!)
                     .ThenInclude(i => i.Subject)
                 .AsNoTracking()
                 .OrderBy(i => i.LastName)
@@ -40,13 +40,13 @@ namespace L7.Controllers
                 ViewData["InstructorID"] = id.Value;
                 Instructor instructor = viewModel.Instructors.Where(
                     i => i.Id == id.Value).Single();
-                viewModel.Courses = instructor.Courses;
+                viewModel.Courses = instructor.Courses!;
             }
 
             if (courseID != null) {
                 ViewData["CourseID"] = courseID.Value;
                 viewModel.Enrollments = viewModel.Courses.Where(
-                    x => x.Id == courseID).Single().Enrollments;
+                    x => x.Id == courseID).Single().Enrollments!;
             }
 
             return View(viewModel);

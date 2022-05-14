@@ -1,6 +1,6 @@
 ﻿@model L7.Models.SchoolViewModels.StudentIndexData
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Students";
 }
 
 <h1>Index</h1>
@@ -16,6 +16,9 @@
             </th>
             <th>
                 LastName
+            </th>
+            <th>
+                Courses
             </th>
             <th></th>
         </tr>
@@ -35,9 +38,9 @@
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
-                    @foreach (var course in item.Enrollments)
+                    @foreach (var course in item.Enrollments!)
                     {
-                        @course.Course.Subject.Title <br />
+                        @course.Course!.Subject!.Title <br />
                     }
                 </td>
                 <td>
@@ -56,8 +59,9 @@
     <table class="table">
         <tr>
             <th></th>
-            <th>Number</th>
             <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
         </tr>
 
         @foreach (var item in Model.Enrollments)
@@ -72,10 +76,13 @@
                     @Html.ActionLink("Select", "Index", new { EnrollmentId = item.Id })
                 </td>
                 <td>
-                    @item.Id
+                    @item.Course!.Subject!.Title
                 </td>
                 <td>
-                    @item.Course.Subject.Title @item.Course.StartDate 
+                    @item.Course.StartDate 
+                </td>
+                <td>
+                    @item.Course.EndDate 
                 </td>
             </tr>
         }
@@ -85,18 +92,21 @@
 @if (Model.Grades != null)
 {
     <h3>
-        Students Enrolled in Selected Course
+        Student grades for selected Course
     </h3>
     <table class="table">
         <tr>
-            <th>Name</th>
             <th>Grade</th>
+            <th>Clasyfication</th>
         </tr>
         @foreach (var item in Model.Grades)
         {
             <tr>
                 <td>
-                    @item.GradeOption.Value
+                    @item.GradeOption!.Value
+                </td>
+                <td>
+                    @item.Classification!.Name
                 </td>
             </tr>
         }

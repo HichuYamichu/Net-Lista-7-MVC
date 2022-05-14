@@ -18,7 +18,10 @@ namespace L7.Controllers {
 
         // GET: Grades
         public async Task<IActionResult> Index() {
-            var schoolContext = _context.Grades.Include(g => g.Enrollment).Include(g => g.GradeOption);
+            var schoolContext = _context.Grades
+                .Include(g => g.Enrollment!)
+                    .ThenInclude(i => i.Student)
+                .Include(g => g.GradeOption);
             return View(await schoolContext.ToListAsync());
         }
 
@@ -71,8 +74,6 @@ namespace L7.Controllers {
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EnrollmentId,GradeOptionId")] Grade grade) {
-            ModelState.Remove("Enrollment");
-            ModelState.Remove("GradeOption");
             if (ModelState.IsValid) {
                 _context.Add(grade);
                 await _context.SaveChangesAsync();

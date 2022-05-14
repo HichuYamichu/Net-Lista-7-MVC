@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<L7.Models.Grade>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Grades";
 }
 
 <h1>Index</h1>
@@ -16,7 +16,10 @@
                 @Html.DisplayNameFor(model => model.Enrollment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GradeOption)
+                Grade
+            </th>
+            <th>
+                Clasyfication
             </th>
             <th></th>
         </tr>
@@ -25,12 +28,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Enrollment.Id)
+                @Html.DisplayFor(modelItem => item.Enrollment.Student.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GradeOption.Id)
+                @Html.DisplayFor(modelItem => item.GradeOption.Value)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.GradeOption.Value)
+            </td>
+            <td>
+                <a asp-action="Index" asp-route-id="@item.Id">Select</a> |
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>

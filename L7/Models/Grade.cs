@@ -5,8 +5,10 @@ namespace L7.Models {
         public int Id { get; set; }
         public int EnrollmentId { get; set; }
         public int GradeOptionId { get; set; }
+        public int ClassificationId { get; set; }
 
-        public Enrollment Enrollment { get; set; } = null!;
-        public GradeOption GradeOption { get; set; } = null!;
+        public Enrollment? Enrollment { get; set; }
+        public GradeOption? GradeOption { get; set; }
+        public Classification? Classification { get; set; }
     }
 }

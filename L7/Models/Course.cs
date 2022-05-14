@@ -7,11 +7,13 @@ namespace L7.Models {
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start Date")]
         public DateTime StartDate;
+        [Display(Name = "End Date")]
+        public DateTime EndDate;
         public int SubjectId { get; set; }
         public int InstructorId { get; set; }
 
-        public Subject Subject { get; set; } = null!;
-        public Instructor Instructor { get; set; } = null!;
-        public ICollection<Enrollment> Enrollments { get; set; } = null!;
+        public Subject? Subject { get; set; }
+        public Instructor? Instructor { get; set; }
+        public ICollection<Enrollment>? Enrollments { get; set; }
     }
 }

@@ -14,6 +14,6 @@ namespace L7.Models {
             }
         }
 
-        public ICollection<Enrollment> Enrollments { get; set; } = null!;
+        public ICollection<Enrollment>? Enrollments { get; set; }
     }
 }

@@ -14,7 +14,6 @@
         <tr>
             <th>Last Name</th>
             <th>First Name</th>
-            <th>Courses</th>
             <th></th>
         </tr>
     </thead>
@@ -33,12 +32,6 @@
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
-                    @foreach (var course in item.Courses)
-                    {
-                         @course.Subject.Title @course.StartDate <br />
-                    }
-                </td>
-                <td>
                     <a asp-action="Index" asp-route-id="@item.Id">Select</a> |
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
@@ -54,8 +47,9 @@
     <table class="table">
         <tr>
             <th></th>
-            <th>Number</th>
             <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
         </tr>
 
         @foreach (var item in Model.Courses)
@@ -70,10 +64,13 @@
                     @Html.ActionLink("Select", "Index", new { courseID = item.Id })
                 </td>
                 <td>
-                    @item.Id
+                    @item.Subject.Title
                 </td>
                 <td>
-                    @item.Subject.Title
+                    @item.StartDate
+                </td>
+                <td>
+                    @item.StartDate
                 </td>
             </tr>
         }
@@ -88,7 +85,6 @@
     <table class="table">
         <tr>
             <th>Name</th>
-            <th>Grade</th>
         </tr>
         @foreach (var item in Model.Enrollments)
         {
@@ -96,7 +92,6 @@
                 <td>
                     @item.Student.FullName
                 </td>
-
             </tr>
         }
     </table>

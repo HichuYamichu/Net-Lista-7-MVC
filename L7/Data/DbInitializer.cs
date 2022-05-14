@@ -35,6 +35,17 @@ namespace L7.Data {
             }
             context.SaveChanges();
 
+            var gradeClassifications = new Classification[]
+            {
+                new Classification{Name = "quiz"},
+                new Classification{Name = "exam"},
+                new Classification{Name = "test"},
+            };
+            foreach (var c in gradeClassifications) {
+                context.Classifications.Add(c);
+            }
+            context.SaveChanges();
+
             var gradeOptions = new GradeOption[]
 {
             new GradeOption{Value = 2.0},
@@ -91,27 +102,27 @@ namespace L7.Data {
             {
                 new Enrollment {
                     StudentId = students.Single(s => s.LastName == "Alexander").Id,
-                    CourseId = courses.Single(c => c.Subject.Title == "Math" ).Id,
+                    CourseId = courses.Single(c => c.Subject!.Title == "Math" ).Id,
                 },
                 new Enrollment {
                     StudentId = students.Single(s => s.LastName == "Alonso").Id,
-                    CourseId = courses.Single(c => c.Subject.Title == "IT" ).Id,
+                    CourseId = courses.Single(c => c.Subject!.Title == "IT" ).Id,
                 },
                 new Enrollment {
                     StudentId = students.Single(s => s.LastName == "Anand").Id,
-                    CourseId = courses.Single(c => c.Subject.Title == "PE" ).Id,
+                    CourseId = courses.Single(c => c.Subject!.Title == "PE" ).Id,
                 },
                 new Enrollment {
                     StudentId = students.Single(s => s.LastName == "Barzdukas").Id,
-                    CourseId = courses.Single(c => c.Subject.Title == "Net" ).Id,
+                    CourseId = courses.Single(c => c.Subject!.Title == "Net" ).Id,
                 },
             };
 
             foreach (Enrollment e in enrollments) {
                 var enrollmentInDataBase = context.Enrollments.Where(
                     s =>
-                            s.Student.Id == e.StudentId &&
-                            s.Course.Id == e.CourseId).SingleOrDefault();
+                            s.Student!.Id == e.StudentId &&
+                            s.Course!.Id == e.CourseId).SingleOrDefault();
                 if (enrollmentInDataBase == null) {
                     context.Enrollments.Add(e);
                 }
@@ -122,31 +133,38 @@ namespace L7.Data {
             {
                 new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 3.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Alexander").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Alexander").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "quiz").Id
                 },
                 new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 2.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Alexander").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Alexander").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "exam").Id
                 },
                 new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 4.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Alexander").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Alexander").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "test").Id
                 },
                 new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 2.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Alonso").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Alonso").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "test").Id
                 },
                 new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 2.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Alonso").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Alonso").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "quiz").Id
                 },
                 new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 2.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Alonso").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Alonso").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "quiz").Id
                 },
                  new Grade (){
                     GradeOptionId = gradeOptions.Single(g => g.Value == 2.0).Id,
-                    EnrollmentId = enrollments.Single(s => s.Student.LastName == "Anand").Id
+                    EnrollmentId = enrollments.Single(s => s.Student!.LastName == "Anand").Id,
+                    ClassificationId = gradeClassifications.Single(c => c.Name == "exam").Id
                 }
             };
 

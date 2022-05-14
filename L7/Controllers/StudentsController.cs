@@ -21,12 +21,15 @@ namespace L7.Controllers {
         public async Task<IActionResult> Index(int? id, int? enrollmentId) {
             var viewModel = new StudentIndexData();
             viewModel.Students = await _context.Students
-                .Include(i => i.Enrollments)
-                    .ThenInclude(i => i.Course)
-                    .ThenInclude(i => i.Subject)
-                .Include(i => i.Enrollments)
-                    .ThenInclude(i => i.Grades)
+                .Include(i => i.Enrollments!)
+                    .ThenInclude(i => i.Course!)
+                    .ThenInclude(i => i.Subject!)
+                .Include(i => i.Enrollments!)
+                    .ThenInclude(i => i.Grades!)
                     .ThenInclude(i => i.GradeOption)
+                .Include(i => i.Enrollments!)
+                    .ThenInclude(i => i.Grades!)
+                    .ThenInclude(i => i.Classification)
                 .AsNoTracking()
                 .OrderBy(i => i.LastName)
                 .ToListAsync();
@@ -34,12 +37,12 @@ namespace L7.Controllers {
             if (id != null) {
                 ViewData["StudentId"] = id.Value;
                 var student = viewModel.Students.Where(i => i.Id == id.Value).Single();
-                viewModel.Enrollments = student.Enrollments;
+                viewModel.Enrollments = student.Enrollments!;
             }
 
             if (enrollmentId != null) {
                 ViewData["EnrollmentId"] = enrollmentId.Value;
-                viewModel.Grades = viewModel.Enrollments.Where(x => x.Id == enrollmentId).Single().Grades;
+                viewModel.Grades = viewModel.Enrollments.Where(x => x.Id == enrollmentId).Single().Grades!;
             }
 
             return View(viewModel);
@@ -52,11 +55,14 @@ namespace L7.Controllers {
             }
 
             var student = await _context.Students
-                .Include(i => i.Enrollments)
-                    .ThenInclude(i => i.Grades)
+                .Include(i => i.Enrollments!)
+                    .ThenInclude(i => i.Grades!)
                     .ThenInclude(i => i.GradeOption)
-                .Include(i => i.Enrollments)
-                    .ThenInclude(i => i.Course)
+                .Include(i => i.Enrollments!)
+                    .ThenInclude(i => i.Grades!)
+                    .ThenInclude(i => i.Classification)
+                .Include(i => i.Enrollments!)
+                    .ThenInclude(i => i.Course!)
                     .ThenInclude(i => i.Subject)
 
                 .FirstOrDefaultAsync(m => m.Id == id);

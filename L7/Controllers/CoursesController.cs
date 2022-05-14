@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using L7.Data;
 using L7.Models;
+using L7.Models.SchoolViewModels;
 
 namespace L7.Controllers
 {
@@ -20,10 +21,35 @@ namespace L7.Controllers
         }
 
         // GET: Courses
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id, int? enrollmentId)
         {
-            var schoolContext = _context.Courses.Include(c => c.Subject);
-            return View(await schoolContext.ToListAsync());
+            var viewModel = new CourseIndexData();
+
+            viewModel.Courses = await _context.Courses
+                .Include(c => c.Subject)
+                .Include(c => c.Instructor)
+                .Include(c => c.Enrollments!)
+                    .ThenInclude(c => c.Student)
+                .Include(c => c.Enrollments!)
+                    .ThenInclude(c => c.Grades!)
+                    .ThenInclude(c => c.GradeOption)
+                .Include(c => c.Enrollments!)
+                    .ThenInclude(c => c.Grades!)
+                    .ThenInclude(c => c.Classification)
+                .ToListAsync();
+
+            if (id != null) {
+                ViewData["CourseId"] = id.Value;
+                var course = viewModel.Courses.Where(i => i.Id == id.Value).Single();
+                viewModel.Enrollments = course.Enrollments!;
+            }
+
+            if (enrollmentId != null) {
+                ViewData["EnrollmentId"] = enrollmentId.Value;
+                viewModel.Grades = viewModel.Enrollments.Where(x => x.Id == enrollmentId).Single().Grades!;
+            }
+
+            return View(viewModel);
         }
 
         // GET: Courses/Details/5
@@ -60,9 +86,6 @@ namespace L7.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SubjectId, InstructorId")] Course course)
         {
-            ModelState.Remove("Subject");
-            ModelState.Remove("Enrollments");
-            ModelState.Remove("Instructor");
             if (ModelState.IsValid)
             {
                 _context.Add(course);
@@ -93,7 +116,7 @@ namespace L7.Controllers
             }
 
             PopulateSubjectDropDownList(course.SubjectId);
-            PopulateInstructorDropDownList(course.Instructor);
+            PopulateInstructorDropDownList(course.Instructor!);
             return View(course);
         }
 
