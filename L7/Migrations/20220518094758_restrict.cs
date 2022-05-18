@@ -4,53 +4,39 @@
 
 namespace L7.Migrations
 {
-    public partial class fixgrade2 : Migration
+    public partial class restrict : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Grade_GradeOption_GradeOptionsId",
+                name: "FK_Grade_GradeOption_GradeOptionId",
+                schema: "Identity",
                 table: "Grade");
-
-            migrationBuilder.RenameColumn(
-                name: "GradeOptionsId",
-                table: "Grade",
-                newName: "GradeOptionId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Grade_GradeOptionsId",
-                table: "Grade",
-                newName: "IX_Grade_GradeOptionId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Grade_GradeOption_GradeOptionId",
+                schema: "Identity",
                 table: "Grade",
                 column: "GradeOptionId",
+                principalSchema: "Identity",
                 principalTable: "GradeOption",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Grade_GradeOption_GradeOptionId",
+                schema: "Identity",
                 table: "Grade");
 
-            migrationBuilder.RenameColumn(
-                name: "GradeOptionId",
-                table: "Grade",
-                newName: "GradeOptionsId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Grade_GradeOptionId",
-                table: "Grade",
-                newName: "IX_Grade_GradeOptionsId");
-
             migrationBuilder.AddForeignKey(
-                name: "FK_Grade_GradeOption_GradeOptionsId",
+                name: "FK_Grade_GradeOption_GradeOptionId",
+                schema: "Identity",
                 table: "Grade",
-                column: "GradeOptionsId",
+                column: "GradeOptionId",
+                principalSchema: "Identity",
                 principalTable: "GradeOption",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);

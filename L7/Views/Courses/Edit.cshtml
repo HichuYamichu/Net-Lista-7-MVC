@@ -21,6 +21,23 @@
                 <span asp-validation-for="SubjectId" class="text-danger" />
             </div>
             <div class="form-group">
+				<label asp-for="Instructor" class="control-label"></label>
+				<select asp-for="InstructorId" class="form-control" asp-items="ViewBag.InstructorId">
+					<option value="">-- Select Instructor --</option>
+				</select>
+				<span asp-validation-for="InstructorId" class="text-danger" />
+			</div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+			<div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

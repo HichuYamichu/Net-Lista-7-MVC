@@ -21,6 +21,9 @@
             <th>
                 Clasyfication
             </th>
+            <th>
+                Course
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -28,13 +31,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Enrollment.Student.FullName)
+                @Html.DisplayFor(modelItem => item.Enrollment!.Student!.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GradeOption.Value)
+                @Html.DisplayFor(modelItem => item.GradeOption!.Value)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GradeOption.Value)
+                @Html.DisplayFor(modelItem => item.Classification!.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enrollment!.Course!.Subject!.Title)
             </td>
             <td>
                 <a asp-action="Index" asp-route-id="@item.Id">Select</a> |

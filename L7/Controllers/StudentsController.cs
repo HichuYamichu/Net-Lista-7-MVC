@@ -8,8 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using L7.Data;
 using L7.Models;
 using L7.Models.SchoolViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace L7.Controllers {
+    [Authorize(Roles = "Admin")]
     public class StudentsController : Controller {
         private readonly SchoolContext _context;
 
@@ -64,7 +66,6 @@ namespace L7.Controllers {
                 .Include(i => i.Enrollments!)
                     .ThenInclude(i => i.Course!)
                     .ThenInclude(i => i.Subject)
-
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (student == null) {
@@ -84,11 +85,18 @@ namespace L7.Controllers {
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName")] Student student) {
-            if (ModelState.IsValid) {
-                _context.Add(student);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+        public async Task<IActionResult> Create([Bind("FirstName,LastName")] Student student) {
+            try {
+                if (ModelState.IsValid) {
+                    _context.Add(student);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            } catch (DbUpdateException /* ex */) {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
             return View(student);
         }
@@ -116,18 +124,21 @@ namespace L7.Controllers {
                 return NotFound();
             }
 
-            if (ModelState.IsValid) {
-                try {
+
+            try {
+                if (ModelState.IsValid) {
                     _context.Update(student);
                     await _context.SaveChangesAsync();
-                } catch (DbUpdateConcurrencyException) {
                     if (!StudentExists(student.Id)) {
                         return NotFound();
-                    } else {
-                        throw;
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+            } catch (DbUpdateException /* ex */) {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
             return View(student);
         }
@@ -155,11 +166,20 @@ namespace L7.Controllers {
                 return Problem("Entity set 'SchoolContext.Students'  is null.");
             }
             var student = await _context.Students.FindAsync(id);
-            if (student != null) {
-                _context.Students.Remove(student);
+            try {
+                if (student != null) {
+                    _context.Students.Remove(student);
+                }
+                await _context.SaveChangesAsync();
+
+            } catch (DbUpdateException /* ex */) {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
+                return View(student);
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

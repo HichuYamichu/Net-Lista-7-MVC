@@ -1,15 +1,2 @@
-done:
-add student
-add instructor
-add grade option
-add course
-
-TODO:
-adding grade to student:
-	dropdown -> course
-	dropdown -> enrolled student
-	dropdown -> grade option
-
-add instructor to course
-	in sourse page dropdown
-
+todo:
+edit grades couses grades do dip

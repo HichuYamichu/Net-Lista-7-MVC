@@ -1,8 +1,10 @@
 ﻿using L7.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace L7.Data {
     public class DbInitializer {
-        public static void Initialize(SchoolContext context) {
+        public static async Task Initialize(SchoolContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole<int>> roleManager) {
             context.Database.EnsureCreated();
 
             // Look for any students.
@@ -10,12 +12,27 @@ namespace L7.Data {
                 return;   // DB has been seeded
             }
 
+            await roleManager.CreateAsync(new IdentityRole<int>("Admin"));
+            await roleManager.CreateAsync(new IdentityRole<int>("Instructor"));
+
+            var admin = new Admin() { };
+            context.Admins.Add(admin);
+            context.SaveChanges();
+
+            var user = new ApplicationUser() {
+                UserName = "admin",
+                Email = "admin@admin.com",
+                Admin = admin,
+            };
+            await userManager.CreateAsync(user, "admin");
+            await userManager.AddToRoleAsync(user, "Admin");
+
             var students = new Student[]
             {
-            new Student{FirstName="Carson",LastName="Alexander"},
-            new Student{FirstName="Meredith",LastName="Alonso"},
-            new Student{FirstName="Arturo",LastName="Anand"},
-            new Student{FirstName="Gytis",LastName="Barzdukas"},
+                new Student{FirstName="Carson",LastName="Alexander"},
+                new Student{FirstName="Meredith",LastName="Alonso"},
+                new Student{FirstName="Arturo",LastName="Anand"},
+                new Student{FirstName="Gytis",LastName="Barzdukas"},
             };
             foreach (Student s in students) {
                 context.Students.Add(s);
@@ -32,6 +49,13 @@ namespace L7.Data {
 
             foreach (Instructor i in instructors) {
                 context.Instructors.Add(i);
+                var u = new ApplicationUser() {
+                    UserName = $"{i.LastName}{i.FirstName}",
+                    Email = $"{i.LastName}{i.FirstName}@school.com",
+                    Instructor = i,
+                };
+                await userManager.CreateAsync(u, i.LastName);
+                await userManager.AddToRoleAsync(u, "Instructor");
             }
             context.SaveChanges();
 
@@ -74,21 +98,25 @@ namespace L7.Data {
             {
                 new Course{
                     StartDate = DateTime.Parse("2010-09-01"),
+                    EndDate = DateTime.Parse("2011-09-01"),
                     SubjectId = subjects.Single(s => s.Title == "Math").Id,
                     InstructorId = instructors.Single(i => i.LastName == "Abercrombie").Id
                 },
                 new Course{
                     StartDate = DateTime.Parse("2010-09-02"),
+                    EndDate = DateTime.Parse("2011-09-01"),
                     SubjectId = subjects.Single(s => s.Title == "IT").Id,
                     InstructorId = instructors.Single(i => i.LastName == "Fakhouri").Id
                 },
                 new Course{
                     StartDate = DateTime.Parse("2010-09-03"),
+                    EndDate = DateTime.Parse("2011-09-01"),
                     SubjectId = subjects.Single(s => s.Title == "PE").Id,
                     InstructorId = instructors.Single(i => i.LastName == "Harui").Id
                 },
                 new Course{
                     StartDate = DateTime.Parse("2010-09-04"),
+                    EndDate = DateTime.Parse("2011-09-01"),
                     SubjectId = subjects.Single(s => s.Title == "Net").Id,
                     InstructorId = instructors.Single(i => i.LastName == "Kapoor").Id
                 },

@@ -8,24 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using L7.Data;
 using L7.Models;
 using L7.Models.SchoolViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
-namespace L7.Controllers
-{
-    public class CoursesController : Controller
-    {
+namespace L7.Controllers {
+    public class CoursesController : Controller {
         private readonly SchoolContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public CoursesController(SchoolContext context)
-        {
+        public CoursesController(SchoolContext context, UserManager<ApplicationUser> userManager) {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Courses
-        public async Task<IActionResult> Index(int? id, int? enrollmentId)
-        {
+        public async Task<IActionResult> Index(int? id, int? enrollmentId) {
             var viewModel = new CourseIndexData();
+            var applicationUser = await _userManager.GetUserAsync(User);
 
-            viewModel.Courses = await _context.Courses
+            var q = _context.Courses
                 .Include(c => c.Subject)
                 .Include(c => c.Instructor)
                 .Include(c => c.Enrollments!)
@@ -35,8 +36,15 @@ namespace L7.Controllers
                     .ThenInclude(c => c.GradeOption)
                 .Include(c => c.Enrollments!)
                     .ThenInclude(c => c.Grades!)
-                    .ThenInclude(c => c.Classification)
-                .ToListAsync();
+                    .ThenInclude(c => c.Classification);
+
+            if (User.IsInRole("Admin")) {
+                viewModel.Courses = await q.ToListAsync();
+            } else {
+                await _context.Entry(applicationUser).Reference(x => x.Instructor).LoadAsync();
+                viewModel.Courses = await q
+                    .Where(c => c.InstructorId == applicationUser.Instructor!.Id).ToListAsync();
+            }
 
             if (id != null) {
                 ViewData["CourseId"] = id.Value;
@@ -53,18 +61,15 @@ namespace L7.Controllers
         }
 
         // GET: Courses/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Courses == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.Courses == null) {
                 return NotFound();
             }
 
             var course = await _context.Courses
                 .Include(c => c.Subject)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (course == null)
-            {
+            if (course == null) {
                 return NotFound();
             }
 
@@ -72,8 +77,8 @@ namespace L7.Controllers
         }
 
         // GET: Courses/Create
-        public IActionResult Create()
-        {
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create() {
             PopulateSubjectDropDownList();
             PopulateInstructorDropDownList();
             return View();
@@ -84,14 +89,22 @@ namespace L7.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SubjectId, InstructorId")] Course course)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(course);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create([Bind("SubjectId, InstructorId, StartDate, EndDate")] Course course) {
+
+            try {
+                if (ModelState.IsValid) {
+                    _context.Add(course);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            } catch (DbUpdateException /* ex */) {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
+
             PopulateSubjectDropDownList(course.SubjectId);
             PopulateInstructorDropDownList(course.InstructorId);
 
@@ -99,10 +112,9 @@ namespace L7.Controllers
         }
 
         // GET: Courses/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Courses == null)
-            {
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.Courses == null) {
                 return NotFound();
             }
 
@@ -110,8 +122,7 @@ namespace L7.Controllers
                 .Include(i => i.Instructor)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (course == null)
-            {
+            if (course == null) {
                 return NotFound();
             }
 
@@ -125,33 +136,28 @@ namespace L7.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SubjectId")] Course course)
-        {
-            if (id != course.Id)
-            {
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SubjectId,InstructorId,StartDate,EndDate")] Course course) {
+            if (id != course.Id) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            try {
+                if (ModelState.IsValid) {
                     _context.Update(course);
                     await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CourseExists(course.Id))
-                    {
+                    if (!CourseExists(course.Id)) {
                         return NotFound();
                     }
-                    else
-                    {
-                        throw;
-                    }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+            } catch (DbUpdateException /* ex */) {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
+
             PopulateSubjectDropDownList(course.SubjectId);
             PopulateSubjectDropDownList(course.InstructorId);
             return View(course);
@@ -166,24 +172,22 @@ namespace L7.Controllers
 
         private void PopulateInstructorDropDownList(object selectedInstructor = null!) {
             var instructorQuery = from i in _context.Instructors
-                                orderby i.LastName
-                                select i;
+                                  orderby i.LastName
+                                  select i;
             ViewBag.InstructorId = new SelectList(instructorQuery.AsNoTracking(), "Id", "FullName", selectedInstructor);
         }
 
         // GET: Courses/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Courses == null)
-            {
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.Courses == null) {
                 return NotFound();
             }
 
             var course = await _context.Courses
                 .Include(c => c.Subject)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (course == null)
-            {
+            if (course == null) {
                 return NotFound();
             }
 
@@ -193,25 +197,33 @@ namespace L7.Controllers
         // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Courses == null)
-            {
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteConfirmed(int id) {
+            if (_context.Courses == null) {
                 return Problem("Entity set 'SchoolContext.Courses'  is null.");
             }
+
             var course = await _context.Courses.FindAsync(id);
-            if (course != null)
-            {
-                _context.Courses.Remove(course);
+            try {
+                if (course != null) {
+                    _context.Courses.Remove(course);
+                }
+
+                await _context.SaveChangesAsync();
+
+            } catch (DbUpdateException /* ex */) {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
+                return View(course);
             }
-            
-            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CourseExists(int id)
-        {
-          return (_context.Courses?.Any(e => e.Id == id)).GetValueOrDefault();
+        private bool CourseExists(int id) {
+            return (_context.Courses?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

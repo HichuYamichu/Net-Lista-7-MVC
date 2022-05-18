@@ -1,0 +1,374 @@
+﻿++Solution 'L7' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:L7.sln
+++L7
+i:{00000000-0000-0000-0000-000000000000}:L7
+++Connected Services 
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1041
+++Dependencies
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1040
+++Properties
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\properties\
+++wwwroot
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\
+++Areas
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\
+++Identity
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\
+++Pages
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\
+++Account
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\
+++_ViewImports.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\_viewimports.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\_viewimports.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\_viewimports.cshtml
+++Login.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\login.cshtml
+++Logout.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\logout.cshtml
+++Register.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\register.cshtml
+++RegisterConfirmation.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\registerconfirmation.cshtml
+++_ValidationScriptsPartial.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\_validationscriptspartial.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\shared\_validationscriptspartial.cshtml
+++_ViewStart.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\_viewstart.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\_viewstart.cshtml
+++Controllers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\
+++CoursesController.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\coursescontroller.cs
+++GradeOptionsController.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\gradeoptionscontroller.cs
+++GradesController.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\gradescontroller.cs
+++HomeController.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\homecontroller.cs
+++InstructorsController.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\instructorscontroller.cs
+++StudentsController.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\controllers\studentscontroller.cs
+++Data
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\data\
+++DbInitializer.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\data\dbinitializer.cs
+++SchoolContext.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\data\schoolcontext.cs
+++Migrations
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\migrations\
+++20220514151644_auth.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\migrations\20220514151644_auth.cs
+++SchoolContextModelSnapshot.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\migrations\schoolcontextmodelsnapshot.cs
+++Models
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\
+++SchoolViewModels
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\schoolviewmodels\
+++Admin.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\admin.cs
+++ApplicationUser.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\applicationuser.cs
+++Classification.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\classification.cs
+++Course.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\course.cs
+++Enrollment.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\enrollment.cs
+++ErrorViewModel.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\errorviewmodel.cs
+++Grade.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\grade.cs
+++GradeOption.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\gradeoption.cs
+++Instructor.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\instructor.cs
+++Student.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\student.cs
+++Subject.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\subject.cs
+++Views
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\
+++Courses
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\courses\
+++GradeOptions
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\gradeoptions\
+++Grades
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\grades\
+++Home
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\home\
+++Instructors
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\instructors\
+++Shared
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\shared\
+++_Layout.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\shared\_layout.cshtml
+++_LoginPartial.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\shared\_loginpartial.cshtml
+++Error.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\shared\error.cshtml
+++Students
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\students\
+++appsettings.json
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\appsettings.json
+++Program.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\program.cs
+++ScaffoldingReadMe.txt
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\scaffoldingreadme.txt
+++todo.txt
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\todo.txt
+++No service dependencies discovered
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1042
+++Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:analyzers
+++Frameworks
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:frameworks
+++Packages
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:packages
+++launchSettings.json
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\properties\launchsettings.json
+++css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\css\
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\
+++js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\js\
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\
+++favicon.ico
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\favicon.ico
+++Login.cshtml.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\login.cshtml.cs
+++Logout.cshtml.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\logout.cshtml.cs
+++Register.cshtml.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\register.cshtml.cs
+++RegisterConfirmation.cshtml.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\areas\identity\pages\account\registerconfirmation.cshtml.cs
+++20220514151644_auth.Designer.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\migrations\20220514151644_auth.designer.cs
+++CourseIndexData.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\schoolviewmodels\courseindexdata.cs
+++GradeCreateData.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\schoolviewmodels\gradecreatedata.cs
+++InstructorIndexData.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\schoolviewmodels\instructorindexdata.cs
+++StudentDetailsData.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\schoolviewmodels\studentdetailsdata.cs
+++StudentIndexData.cs
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\models\schoolviewmodels\studentindexdata.cs
+++Create.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\courses\create.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\gradeoptions\create.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\grades\create.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\instructors\create.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\students\create.cshtml
+++Delete.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\courses\delete.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\gradeoptions\delete.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\grades\delete.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\instructors\delete.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\students\delete.cshtml
+++Details.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\courses\details.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\gradeoptions\details.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\grades\details.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\instructors\details.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\students\details.cshtml
+++Edit.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\courses\edit.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\gradeoptions\edit.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\grades\edit.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\instructors\edit.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\students\edit.cshtml
+++Index.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\courses\index.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\gradeoptions\index.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\grades\index.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\home\index.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\instructors\index.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\students\index.cshtml
+++Privacy.cshtml
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\home\privacy.cshtml
+++_Layout.cshtml.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\views\shared\_layout.cshtml.css
+++appsettings.Development.json
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\appsettings.development.json
+++MessagePackAnalyzer
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\users\hichu\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
+++Microsoft.AspNetCore.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.SourceGenerator.Tooling.Internal
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+++Microsoft.CodeAnalysis.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\users\hichu\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\users\hichu\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\users\hichu\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.5\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.2\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\sdk\6.0.200\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.2\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\microsoft.netcore.app
+++Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore (6.0.4)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1055
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.5)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1079
+++Microsoft.AspNetCore.Identity.UI (6.0.5)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1080
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.5)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1053
+++Microsoft.EntityFrameworkCore.Tools (6.0.5)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1057
+++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.4)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1058
+++Swashbuckle.AspNetCore (6.3.0)
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:>1054
+++site.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\css\site.css
+++site.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\js\site.js
+++bootstrap
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\
+++jquery
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery\
+++jquery-validation
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\
+++jquery-validation-unobtrusive
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation-unobtrusive\
+++dist
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery\dist\
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\dist\
+++LICENSE
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\license
+++LICENSE.txt
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery\license.txt
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+++LICENSE.md
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\license.md
+++jquery.validate.unobtrusive.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+++jquery.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery\dist\jquery.js
+++additional-methods.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\dist\additional-methods.js
+++jquery.validate.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+++jquery.validate.unobtrusive.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+++bootstrap.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+++bootstrap-grid.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+++bootstrap-reboot.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+++bootstrap-utilities.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+++bootstrap.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+++jquery.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery\dist\jquery.min.js
+++additional-methods.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+++jquery.validate.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+++bootstrap.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+++bootstrap.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+++bootstrap.rtl.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+++bootstrap-grid.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+++bootstrap-grid.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+++bootstrap-grid.rtl.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+++bootstrap-reboot.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+++bootstrap-reboot.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+++bootstrap-reboot.rtl.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+++bootstrap-utilities.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+++bootstrap-utilities.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+++bootstrap-utilities.rtl.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+++bootstrap.bundle.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+++bootstrap.esm.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+++bootstrap.js.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+++bootstrap.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+++jquery.min.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\jquery\dist\jquery.min.map
+++bootstrap.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+++bootstrap.rtl.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+++bootstrap.rtl.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+++bootstrap-grid.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+++bootstrap-grid.rtl.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+++bootstrap-grid.rtl.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+++bootstrap-reboot.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+++bootstrap-reboot.rtl.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+++bootstrap-reboot.rtl.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+++bootstrap-utilities.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+++bootstrap-utilities.rtl.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+++bootstrap-utilities.rtl.min.css
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+++bootstrap.bundle.js.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+++bootstrap.bundle.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+++bootstrap.esm.js.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+++bootstrap.esm.min.js
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+++bootstrap.min.js.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+++bootstrap.rtl.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+++bootstrap-grid.rtl.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+++bootstrap-reboot.rtl.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+++bootstrap-utilities.rtl.min.css.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+++bootstrap.bundle.min.js.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+++bootstrap.esm.min.js.map
+i:{068c1145-56a8-4907-b1ec-0cdebdd12c34}:d:\docs\.net halik\l7\l7\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
