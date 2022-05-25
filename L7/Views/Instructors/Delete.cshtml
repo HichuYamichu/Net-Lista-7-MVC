@@ -24,6 +24,7 @@
             @Html.DisplayFor(model => model.LastName)
         </dd>
     </dl>
+    <span class="text-danger">@Html.ValidationSummary(false)</span>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />

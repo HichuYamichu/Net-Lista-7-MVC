@@ -4,6 +4,7 @@ using L7.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace L7.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20220525151814_restrict3")]
+    partial class restrict3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -436,8 +438,7 @@ namespace L7.Migrations
 
                     b.HasOne("L7.Models.Instructor", "Instructor")
                         .WithOne("ApplicationUser")
-                        .HasForeignKey("L7.Models.ApplicationUser", "InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("L7.Models.ApplicationUser", "InstructorId");
 
                     b.Navigation("Admin");
 

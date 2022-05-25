@@ -60,6 +60,16 @@ namespace L7.Data {
                 .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Course>()
+                .HasOne(b => b.Instructor)
+                .WithMany(c => c.Courses)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOne(b => b.Instructor)
+                .WithOne(c => c.ApplicationUser)
+                .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<Enrollment>()
                 .HasIndex(a => new { a.StudentId, a.CourseId }).IsUnique();
         }

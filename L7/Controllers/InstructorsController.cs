@@ -170,6 +170,8 @@ namespace L7.Controllers {
             var instructor = await _context.Instructors.FindAsync(id);
             try {
                 if (instructor != null) {
+                    //_context.Entry(instructor).Reference(c => c.ApplicationUser).Load();
+                    //await _userManager.DeleteAsync(instructor!.ApplicationUser!);
                     _context.Instructors.Remove(instructor);
                 }
 

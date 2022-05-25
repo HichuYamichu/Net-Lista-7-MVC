@@ -22,7 +22,10 @@ namespace L7.Controllers {
         }
 
         // GET: Grades
-        public async Task<IActionResult> Index() {
+        public async Task<IActionResult> Index(string? studentLastName, string? subject) {
+            ViewData["studentFilter"] = studentLastName;
+            ViewData["subjectFilter"] = subject;
+
             var schoolContext = _context.Grades
                 .Include(g => g.Enrollment!)
                     .ThenInclude(i => i.Student)
@@ -30,7 +33,16 @@ namespace L7.Controllers {
                     .ThenInclude(i => i.Course!)
                     .ThenInclude(i => i.Subject)
                 .Include(g => g.GradeOption)
-                .Include(g => g.Classification);
+                .Include(g => g.Classification)
+                .Select(s => s);
+
+            if (studentLastName != null ) {
+                schoolContext = schoolContext.Where(g => g.Enrollment.Student.LastName == studentLastName);
+            }
+            if (subject != null) {
+                schoolContext = schoolContext.Where(g => g.Enrollment.Course.Subject.Title == subject);
+            }
+
             return View(await schoolContext.ToListAsync());
         }
 

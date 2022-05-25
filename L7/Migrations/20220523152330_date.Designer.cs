@@ -4,6 +4,7 @@ using L7.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace L7.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20220523152330_date")]
+    partial class date
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,9 +103,7 @@ namespace L7.Migrations
 
                     b.HasIndex("AdminId");
 
-                    b.HasIndex("InstructorId")
-                        .IsUnique()
-                        .HasFilter("[InstructorId] IS NOT NULL");
+                    b.HasIndex("InstructorId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -435,9 +435,8 @@ namespace L7.Migrations
                         .HasForeignKey("AdminId");
 
                     b.HasOne("L7.Models.Instructor", "Instructor")
-                        .WithOne("ApplicationUser")
-                        .HasForeignKey("L7.Models.ApplicationUser", "InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("InstructorId");
 
                     b.Navigation("Admin");
 
@@ -449,7 +448,7 @@ namespace L7.Migrations
                     b.HasOne("L7.Models.Instructor", "Instructor")
                         .WithMany("Courses")
                         .HasForeignKey("InstructorId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("L7.Models.Subject", "Subject")
@@ -572,8 +571,6 @@ namespace L7.Migrations
 
             modelBuilder.Entity("L7.Models.Instructor", b =>
                 {
-                    b.Navigation("ApplicationUser");
-
                     b.Navigation("Courses");
                 });
 
